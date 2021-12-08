@@ -55,7 +55,7 @@ function concatName(conjuntoPalavras) {
   let ultima = conjuntoPalavras.pop();
   console.log(ultima);
   ultimoItemPrimeiroItem.concat(primeira).concat(', ').concat(ultima);
-  // console.log(ultimoItemPrimeiroItem);
+  return (ultimoItemPrimeiroItem);
 }
 // const nomeCompleto = ["Débora", "Schuch", "da", "Rosa"];
 // console.log(concatName(nomeCompleto));
@@ -97,7 +97,7 @@ function highestCount(setOfNumbers) {
 // let conj2 = [0, 4, 4, 4, 9, 2, 1];
 // let conj3 = [0, 0, 0];
 // let quantidadeVezesMaiorNumeroRepete = highestCount(conj);
-// console.log(quantidadeVezesMaiorNumeroRepete); 
+// console.log(quantidadeVezesMaiorNumeroRepete);
 
 // Desafio 7 (----DONE----)
 // REQUISITO 07: desde coordenadas lineares de rato e dois gatos, dizer qual gato caça o rato
@@ -120,31 +120,31 @@ function catAndMouse(mouse, cat1, cat2) {
 // Desafio 8 (----DONE----)
 // REQUISITO 08: dado um conjunto de números, dependendo de como cada um deles é dividido por 3, por 5,
 // ambos ou nenhum destes, registramos mensagens respectivas
-function divisivelPorX(numberToBeAnalysed, divisor) {
+/* function divisivelPorX(numberToBeAnalysed, divisor) {
   // We verify if the rest of the division between number and divisor
   let answer = true;
   if (numberToBeAnalysed % divisor === 0) {
     answer = true;
   } else answer = false;
   return answer;
-}
+} */
 
-function fizzBuzz(numbers) {
-  /* let messageCapturing = [];
+function fizzBuzz() {
+  /* DSR declarar numbers como parametro let messageCapturing = [];
   for (let number of numbers) {
     if (divisivelPorX(number, 3) && divisivelPorX(number, 5)) {
       messageCapturing.push("fizzbuzz");
     } else {
             if (divisivelPorX(number, 3)) {
-              messageCapturing.push("fizz"); 
+              messageCapturing.push("fizz");
             } else {
                     if (divisivelPorX(number, 5)) {
                       messageCapturing.push("buzz");
                     } else {
-                            messageCapturing.push("bug!");  
-                          } 
-                  } 
-            } 
+                            messageCapturing.push("bug!");
+                          }
+                  }
+            }
           }
   return(messageCapturing);  */
 }
