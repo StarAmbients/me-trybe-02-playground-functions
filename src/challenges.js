@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/cognitive-complexity */
 // Desafio 1 (----DONE----)
 // REQUISITO 01: uso do operador de junção
 function compareTrue(aptoExameCultural, aptoExameLinguaEspanhola) {
@@ -117,33 +118,18 @@ function catAndMouse(mouse, cat1, cat2) {
 // Desafio 8 (----DONE----)
 // REQUISITO 08: dado um conjunto de números, dependendo de como cada um deles é dividido por 3, por 5,
 // ambos ou nenhum destes, registramos mensagens respectivas
-/* function divisivelPorX(numberToBeAnalysed, divisor) {
-  // We verify if the rest of the division between number and divisor
-  let answer = true;
-  if (numberToBeAnalysed % divisor === 0) {
-    answer = true;
-  } else answer = false;
-  return answer;
-} */
-
-function fizzBuzz() {
-  /* DSR declarar numbers como parametro let messageCapturing = [];
+function fizzBuzz(numbers) {
+  let messageCapturing = [];
   for (let number of numbers) {
-    if (divisivelPorX(number, 3) && divisivelPorX(number, 5)) {
-      messageCapturing.push("fizzbuzz");
-    } else {
-            if (divisivelPorX(number, 3)) {
-              messageCapturing.push("fizz");
-            } else {
-                    if (divisivelPorX(number, 5)) {
-                      messageCapturing.push("buzz");
-                    } else {
-                            messageCapturing.push("bug!");
-                          }
-                  }
-            }
-          }
-  return(messageCapturing);  */
+    if (number % 3 === 0) {
+      if (number % 5 === 0) {
+        messageCapturing.push('fizzbuzz');
+      } else messageCapturing.push('fizz');
+    } else if (number % 5 === 0) {
+      messageCapturing.push('buzz');
+    } else messageCapturing.push('bug!');
+  }
+  return messageCapturing;
 }
 // console.log(fizzBuzz([2, 15, 7, 9, 45]));
 // (5) ['fizzbuzz', 'bug!', 'bug!', 'fizz', 'bug!']
