@@ -100,11 +100,10 @@ function highestCount(setOfNumbers) {
 // Desafio 7 (----DONE----)
 // REQUISITO 07: desde coordenadas lineares de rato e dois gatos, dizer qual gato caça o rato
 function catAndMouse(mouse, cat1, cat2) {
-  let diffCatCat = cat1 - cat2;
   let diffmouseCat1 = Math.abs(mouse - cat1);
   let diffmouseCat2 = Math.abs(mouse - cat2);
   let message = ' ';
-  if (diffCatCat === 0) {
+  if (diffmouseCat1 === diffmouseCat2) {
     message = 'os gatos trombam e o rato foge';
   } else if (diffmouseCat1 < diffmouseCat2) {
     message = 'cat1';
