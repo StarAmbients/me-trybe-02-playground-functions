@@ -51,10 +51,8 @@ function splitSentence(frase) {
 function concatName(conjuntoPalavras) {
   let ultimoItemPrimeiroItem = '';
   let primeira = conjuntoPalavras.shift();
-  // console.log(primeira);
   let ultima = conjuntoPalavras.pop();
-  // console.log(ultima);
-  ultimoItemPrimeiroItem.concat(primeira).concat(', ').concat(ultima);
+  ultimoItemPrimeiroItem = ultimoItemPrimeiroItem.concat(primeira).concat(', ').concat(ultima);
   return (ultimoItemPrimeiroItem);
 }
 // const nomeCompleto = ["Débora", "Schuch", "da", "Rosa"];
@@ -63,8 +61,8 @@ function concatName(conjuntoPalavras) {
 // console.log(concatName(['captain', 'my', 'captain']));
 
 // Desafio 5 (----DONE----)
+// REQUISITO 5: desde numero de vitórias (peso 3) e número de empates (peso 1), calcula pontuaçao
 function footballPoints(wins, ties) {
-  // REQUISITO 5: desde numero de vitórias (peso 3) e número de empates (peso 1), calcula pontuaçao
   let points = (wins * 3) + (ties * 1);
   return points;
 }
