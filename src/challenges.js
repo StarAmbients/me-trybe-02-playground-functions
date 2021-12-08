@@ -51,9 +51,9 @@ function splitSentence(frase) {
 function concatName(conjuntoPalavras) {
   let ultimoItemPrimeiroItem = '';
   let primeira = conjuntoPalavras.shift();
-  console.log(primeira);
+  // console.log(primeira);
   let ultima = conjuntoPalavras.pop();
-  console.log(ultima);
+  // console.log(ultima);
   ultimoItemPrimeiroItem.concat(primeira).concat(', ').concat(ultima);
   return (ultimoItemPrimeiroItem);
 }
