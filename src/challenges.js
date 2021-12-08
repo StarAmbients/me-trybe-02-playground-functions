@@ -52,10 +52,10 @@ function concatName(conjuntoPalavras) {
   let ultimoItemPrimeiroItem = '';
   let primeira = conjuntoPalavras.shift();
   let ultima = conjuntoPalavras.pop();
-  ultimoItemPrimeiroItem = ultimoItemPrimeiroItem.concat(primeira).concat(', ').concat(ultima);
+  ultimoItemPrimeiroItem = ultima.concat(', ').concat(primeira);
   return (ultimoItemPrimeiroItem);
 }
-// const nomeCompleto = ["Débora", "Schuch", "da", "Rosa"];
+// const nomeCompleto = ['Débora', 'Schuch', 'da', 'Rosa'];
 // console.log(concatName(nomeCompleto));
 // console.log(concatName(['foguete', 'não', 'tem', 'ré']));
 // console.log(concatName(['captain', 'my', 'captain']));
