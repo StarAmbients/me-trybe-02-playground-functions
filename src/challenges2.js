@@ -110,7 +110,7 @@ function generatePhoneNumber(entryNumbers) {
 // REQUISITO 12: verificação de condição de existência de um triângulo
 // The value of any given size is smaller than the sum of the other two sizes
 function analysisSums(lineA, lineB, lineC) {
-  if ( (lineA < (lineB + lineC)) || (lineB < (lineA + lineC)) || (lineC < (lineA + lineB) )) {
+  if ((lineA < (lineB + lineC)) || (lineB < (lineA + lineC)) || (lineC < (lineA + lineB))) {
    return true;
   } else {
     return false;
@@ -118,7 +118,7 @@ function analysisSums(lineA, lineB, lineC) {
 }
 // The value of any given size is bigger than the absolute value of the difference between the other two sizes
 function analysisAbsValues(lineA, lineB, lineC) {
-  if ( (lineA > Math.abs(lineB - lineC)) || (lineB > Math.abs(lineA - lineC)) || Math.abs(lineC > (lineA - lineB) )) {
+  if ((lineA > Math.abs(lineB - lineC)) || (lineB > Math.abs(lineA - lineC)) || Math.abs(lineC > (lineA - lineB) )) {
     return true;
   } else {
     return false;
@@ -126,7 +126,7 @@ function analysisAbsValues(lineA, lineB, lineC) {
 }
 // The value of any given size is bigger than the sum of the other two sizes
 function conditionOne(lineA, lineB, lineC){
-  if ( (lineA > (lineB + lineC)) || (lineB > (lineA + lineC)) || (lineC > (lineA + lineB) )){
+  if ((lineA > (lineB + lineC)) || (lineB > (lineA + lineC)) || (lineC > (lineA + lineB))) {
     return true;
   } else {
     return false;
@@ -134,7 +134,7 @@ function conditionOne(lineA, lineB, lineC){
 }
 // The value of any given size is smaller than the absolute value of the difference between the other two sizes
 function conditionTwo(lineA, lineB, lineC) {
-  if ( (lineA < Math.abs(lineB - lineC)) || (lineB < Math.abs(lineA - lineC)) || Math.abs(lineC < (lineA - lineB) )){
+  if ((lineA < Math.abs(lineB - lineC)) || (lineB < Math.abs(lineA - lineC)) || Math.abs(lineC < (lineA - lineB))) {
     return true;
   } else {
     return false;
@@ -143,12 +143,11 @@ function conditionTwo(lineA, lineB, lineC) {
 function triangleCheck(lineA, lineB, lineC) {
   let itExistsTriangleWithSuchLines = null;
   if (conditionOne(lineA, lineB, lineC) || conditionTwo(lineA, lineB, lineC)) {
-    itExistsTriangleWithSuchLines = false;
+    return false;
   }
-  if (analysisSums(lineA, lineB, lineC) && analysisAbsValues(lineA, lineB, lineC)){
-    itExistsTriangleWithSuchLines = true;
+  if (analysisSums(lineA, lineB, lineC) && analysisAbsValues(lineA, lineB, lineC)) {
+    return true;
   }
-return itExistsTriangleWithSuchLines;
 }
 // console.log(triangleCheck(10, 14, 8)); //true
 
