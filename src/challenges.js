@@ -75,19 +75,17 @@ function footballPoints(wins, ties) {
 // REQUISITO 06: desde um conjunto de números, descobrir o maior deles e contar quantas vezes aparece
 // eslint-disable-next-line sonarjs/cognitive-complexity
 function highestCount(setOfNumbers) {
-  let count = 0;
-  // console.log('Set de entrada: ', setOfNumbers);
+  let count = 1;
+  let maior = setOfNumbers[0];
   let tamanho = setOfNumbers.length;
-  // console.log('Tamanho: ', tamanho);
-  setOfNumbers.sort();
-  // console.log('Set ordenado: ', setOfNumbers);
-  let ultimoElemento = setOfNumbers[tamanho - 1];
-  // console.log('Ultimo: ',ultimoElemento);
-  for (let index = tamanho - 1; index >= 0; index -= 1) {
-      if (setOfNumbers[index] === ultimoElemento) {
-        count += 1;
-        // console.log('Contando... :', count)
-      }
+  for (let index = 1; index < tamanho; index += 1) {
+    if (setOfNumbers[index] === maior) {
+      count += 1;
+    } else { if (maior < setOfNumbers[index]) {
+                maior = setOfNumbers[index];
+                count = 1;
+              }
+            }
   }
   return count;
 }
