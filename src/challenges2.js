@@ -85,7 +85,7 @@ function formatPhoneNumber(numbersToFormat) {
   let areaCode = goodPhoneNumber.substr(0, 2);
   let firstFive = goodPhoneNumber.substr(2, 5);
   let lastFour = goodPhoneNumber.substr(7);
-  gSPN = gSPN.concat('(').concat(areaCode).concat(')').concat(firstFive);
+  gSPN = gSPN.concat('(').concat(areaCode).concat(') ').concat(firstFive);
   gSPN = gSPN.concat('-').concat(lastFour);
   return gSPN;
 }
@@ -93,7 +93,7 @@ function formatPhoneNumber(numbersToFormat) {
 function generatePhoneNumber(entryNumbers) {
   const noMoreCommas = cleanEntry(entryNumbers);
   if (!size(entryNumbers)) {
-    return 'Array com tamanho incorreto';
+    return 'Array com tamanho incorreto.';
   } else {
       if (posit(entryNumbers) && range(entryNumbers) && freeRep(entryNumbers)) {
         return formatPhoneNumber(noMoreCommas);
