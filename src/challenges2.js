@@ -108,30 +108,44 @@ function generatePhoneNumber(entryNumbers) {
 
 // Desafio 12 (----DONE----)
 // REQUISITO 12: verificação de condição de existência de um triângulo
+// The value of any given size is smaller than the sum of the other two sizes
+function analysisSums(lineA, lineB, lineC) {
+  if ( (lineA < (lineB + lineC)) || (lineB < (lineA + lineC)) || (lineC < (lineA + lineB) )) {
+   return true;
+  } else {
+    return false;
+  }
+}
+// The value of any given size is bigger than the absolute value of the difference between the other two sizes
+function analysisAbsValues(lineA, lineB, lineC) {
+  if ( (lineA > Math.abs(lineB - lineC)) || (lineB > Math.abs(lineA - lineC)) || Math.abs(lineC > (lineA - lineB) )) {
+    return true;
+  } else {
+    return false;
+  }
+}
+// The value of any given size is bigger than the sum of the other two sizes
+function conditionOne(lineA, lineB, lineC){
+  if ( (lineA > (lineB + lineC)) || (lineB > (lineA + lineC)) || (lineC > (lineA + lineB) )){
+    return true;
+  } else {
+    return false;
+  }
+}
+// The value of any given size is smaller than the absolute value of the difference between the other two sizes
+function conditionTwo(lineA, lineB, lineC) {
+  if ( (lineA < Math.abs(lineB - lineC)) || (lineB < Math.abs(lineA - lineC)) || Math.abs(lineC < (lineA - lineB) )){
+    return true;
+  } else {
+    return false;
+  }
+}
 function triangleCheck(lineA, lineB, lineC) {
   let itExistsTriangleWithSuchLines = null;
-  let analysisSums, analysisAbsValues = false;
-
-  // The value of any given size is bigger than the sum of the other two sizes
-  if ( (lineA > (lineB+lineC)) || (lineB > (lineA+lineC)) || (lineC > (lineA+lineB) )){
+  if (conditionOne(lineA, lineB, lineC) || conditionTwo(lineA, lineB, lineC)) {
     itExistsTriangleWithSuchLines = false;
   }
-
-  // The value of any given size is smaller than the absolute value of the difference between the other two sizes
-  if ( (lineA < Math.abs(lineB-lineC)) || (lineB < Math.abs(lineA-lineC)) || Math.abs(lineC < (lineA-lineB) )){
-    itExistsTriangleWithSuchLines = false;
-  }
-
-  // The value of any given size is smaller than the sum of the other two sizes
-  if ( (lineA < (lineB+lineC)) || (lineB < (lineA+lineC)) || (lineC < (lineA+lineB) )) {
-    analysisSums = true;
-  }
-  // The value of any given size is bigger than the absolute value of the difference between the other two sizes
-  if ( (lineA > Math.abs(lineB-lineC)) || (lineB > Math.abs(lineA-lineC)) || Math.abs(lineC > (lineA-lineB) )) {
-    analysisAbsValues = true;
-  }
-
-  if (analysisSums && analysisAbsValues){
+  if (analysisSums(lineA, lineB, lineC) && analysisAbsValues(lineA, lineB, lineC)){
     itExistsTriangleWithSuchLines = true;
   }
 return itExistsTriangleWithSuchLines;
@@ -151,8 +165,6 @@ function hydrate(pedido) {
     goodPractices = '1 copo de água';
   } else { for (let index = 0; index < howManyNumbers; index += 1) {
      cupsOfWater = cupsOfWater + parseInt(extractingNumbers[index]);
-     // number = parseInt(extractingNumbers[index]);
-     // cupsOfWater = cupsOfWater.concat(number);
     }
   goodPractices = cupsOfWater.toString().concat(' copos de água');
   }
