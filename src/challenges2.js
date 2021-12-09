@@ -24,7 +24,7 @@ function techList(techToLearn, name) {
 
 // Desafio 11
 // REQUISITO 11: uso de regex ou se não conseguir, criação de funções de validação de string
-function sizeOK(setOfNumbers) {
+function size(setOfNumbers) {
   let answer = true;
   if (setOfNumbers.length === 11) {
     answer = true;
@@ -34,7 +34,7 @@ function sizeOK(setOfNumbers) {
   return answer;
 }
 
-function positiveValuesOK(setOfNumbers) {
+function posit(setOfNumbers) {
   // const sortedNumbers = setOfNumbers.sort();
   let answer = true;
   if (setOfNumbers.sort()[0] >= 0) {
@@ -45,7 +45,7 @@ function positiveValuesOK(setOfNumbers) {
   return answer;
 }
 
-function rangeOK(setOfNumbers) {
+function range(setOfNumbers) {
   // We sort the array in descending order and check its first element.
   // As numbers could be sorted here as strings, "25" is bigger than "100", because "2" is bigger than "1",
   // We decided to avoid this possible incorrect result by using a compare function, which would work fine
@@ -55,7 +55,7 @@ function rangeOK(setOfNumbers) {
   return answer;
 }
 
-function freeOfRepetitionsOK(setOfNumbers) {
+function freeRep(setOfNumbers) {
   // We should consider studying this option in the future
   // Reference: https://stackoverflow.com/questions/5667888/counting-the-occurrences-frequency-of-array-elements/16204191
   // const _ = require("lodash");
@@ -93,11 +93,11 @@ function formatPhoneNumber(numbersToFormat) {
 function generatePhoneNumber(entryNumbers) {
   let bigMistakeString, resultAfterVerification = '';
   const noMoreCommas = cleanEntry(entryNumbers);
-  if (sizeOK(entryNumbers) && positiveValuesOK(entryNumbers) && rangeOK(entryNumbers) && freeOfRepetitionsOK(entryNumbers)){
+  if (size(entryNumbers) && posit(entryNumbers) && range(entryNumbers) && freeRep(entryNumbers)){
         resultAfterVerification = formatPhoneNumber(noMoreCommas);
   } else {
       if (!sizeOK(entryNumbers)){
-        bigMistakeString ='Array com tamanho incorreto';
+        bigMistakeString = 'Array com tamanho incorreto';
       }
       bigMistakeString = 'não é possível gerar um número de telefone com esses valores';
       resultAfterVerification = bigMistakeString;
@@ -149,11 +149,11 @@ function hydrate(pedido) {
   let number = '';
   if (howManyNumbers === 1) {
     goodPractices = '1 copo de água';
-    // DSR mexi aqui 23h30 quarta
   } else { for (let index = 0; index < howManyNumbers; index += 1) {
-    number = parseInt(extractingNumbers[index]);
-    cupsOfWater = cupsOfWater.concat(number);
-  }
+     cupsOfWater = cupsOfWater + parseInt(extractingNumbers[index]);
+     // number = parseInt(extractingNumbers[index]);
+     // cupsOfWater = cupsOfWater.concat(number);
+    }
   goodPractices = cupsOfWater.toString().concat(' copos de água');
   }
   return goodPractices;
