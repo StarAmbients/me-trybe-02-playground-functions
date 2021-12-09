@@ -91,18 +91,17 @@ function formatPhoneNumber(numbersToFormat) {
 }
 
 function generatePhoneNumber(entryNumbers) {
-  let bigMistakeString, resultAfterVerification = '';
+  let bigMistakeString = '';
+  let resultAfterVerification = '';
   const noMoreCommas = cleanEntry(entryNumbers);
-  if (size(entryNumbers) && posit(entryNumbers) && range(entryNumbers) && freeRep(entryNumbers)){
-        resultAfterVerification = formatPhoneNumber(noMoreCommas);
+  if (size(entryNumbers) && posit(entryNumbers) && range(entryNumbers) && freeRep(entryNumbers)) {
+    return formatPhoneNumber(noMoreCommas);
   } else {
-      if (!size(entryNumbers)){
-        bigMistakeString = 'Array com tamanho incorreto';
-      }
-      bigMistakeString = 'não é possível gerar um número de telefone com esses valores';
-      resultAfterVerification = bigMistakeString;
+    if (!size(entryNumbers)){
+      return 'Array com tamanho incorreto';
     }
-  return resultAfterVerification;
+    return 'não é possível gerar um número de telefone com esses valores';
+  }
 }
 // console.log(generatePhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1]));
 
