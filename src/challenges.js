@@ -75,28 +75,26 @@ function footballPoints(wins, ties) {
 // REQUISITO 06: desde um conjunto de números, descobrir o maior deles e contar quantas vezes aparece
 // eslint-disable-next-line sonarjs/cognitive-complexity
 function highestCount(setOfNumbers) {
-  let tamanho = 0;
-  let ultimoElemento = 0;
   let count = 0;
+  // console.log('Set de entrada: ', setOfNumbers);
+  let tamanho = setOfNumbers.length;
+  // console.log('Tamanho: ', tamanho);
   setOfNumbers.sort();
-  tamanho = setOfNumbers.length;
-  ultimoElemento = setOfNumbers[tamanho - 1];
-  if (ultimoElemento !== 0) {
-    for (let index = tamanho - 1; index >= 0; index -= 1) {
+  // console.log('Set ordenado: ', setOfNumbers);
+  let ultimoElemento = setOfNumbers[tamanho - 1];
+  // console.log('Ultimo: ',ultimoElemento);
+  for (let index = tamanho - 1; index >= 0; index -= 1) {
       if (setOfNumbers[index] === ultimoElemento) {
         count += 1;
-      } else {
-        break;
+        // console.log('Contando... :', count)
       }
-    }
   }
   return count;
 }
 // let  conj = [9, 9, 2, 3, 9, 5, 7];
 // let conj2 = [0, 4, 4, 4, 9, 2, 1];
 // let conj3 = [0, 0, 0];
-// let quantidadeVezesMaiorNumeroRepete = highestCount(conj);
-// console.log(quantidadeVezesMaiorNumeroRepete);
+// highestCount(conj);
 
 // Desafio 7 (----DONE----)
 // REQUISITO 07: desde coordenadas lineares de rato e dois gatos, dizer qual gato caça o rato
