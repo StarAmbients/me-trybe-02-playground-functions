@@ -51,7 +51,7 @@ function range(setOfNumbers) {
   // We decided to avoid this possible incorrect result by using a compare function, which would work fine
   // anyway if the input values are numbers.
   let answer = true;
-  setOfNumbers.sort(function (a, b) { return b - a; })[0] <= 9 ? answer = true : answer = false;
+  setOfNumbers = setOfNumbers.sort(function (a, b) { return b - a; })[0] <= 9 ? answer = true : answer = false;
   return answer;
 }
 
@@ -92,13 +92,11 @@ function formatPhoneNumber(numbersToFormat) {
 
 function generatePhoneNumber(entryNumbers) {
   const noMoreCommas = cleanEntry(entryNumbers);
-  if (!size(entryNumbers)) {
+  if (!size(entryNumbers)) 
     return 'Array com tamanho incorreto.';
-  } else {
-      if (posit(entryNumbers) && range(entryNumbers) && freeRep(entryNumbers)) {
-        return formatPhoneNumber(noMoreCommas);
-      } else return 'não é possível gerar um número de telefone com esses valores';
-    }
+    else if (posit(entryNumbers) && range(entryNumbers) && freeRep(entryNumbers)) 
+              return formatPhoneNumber(noMoreCommas);
+              else return 'não é possível gerar um número de telefone com esses valores';
 }
 // console.log(generatePhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1]));
 
