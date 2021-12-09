@@ -96,7 +96,7 @@ function generatePhoneNumber(entryNumbers) {
   if (size(entryNumbers) && posit(entryNumbers) && range(entryNumbers) && freeRep(entryNumbers)){
         resultAfterVerification = formatPhoneNumber(noMoreCommas);
   } else {
-      if (!sizeOK(entryNumbers)){
+      if (!size(entryNumbers)){
         bigMistakeString = 'Array com tamanho incorreto';
       }
       bigMistakeString = 'não é possível gerar um número de telefone com esses valores';
