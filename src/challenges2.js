@@ -92,15 +92,13 @@ function formatPhoneNumber(numbersToFormat) {
 
 function generatePhoneNumber(entryNumbers) {
   const noMoreCommas = cleanEntry(entryNumbers);
-  if (size(entryNumbers) && posit(entryNumbers) && range(entryNumbers) && freeRep(entryNumbers)) {
-    return formatPhoneNumber(noMoreCommas);
+  if (!size(entryNumbers)) {
+    return 'Array com tamanho incorreto';
   } else {
-    if (!size(entryNumbers)) {
-      return 'Array com tamanho incorreto';
-    } else {
-      return 'não é possível gerar um número de telefone com esses valores';
+      if (posit(entryNumbers) && range(entryNumbers) && freeRep(entryNumbers)) {
+        return formatPhoneNumber(noMoreCommas);
+      } else return 'não é possível gerar um número de telefone com esses valores';
     }
-  }
 }
 // console.log(generatePhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1]));
 
@@ -139,7 +137,6 @@ function conditionTwo(lineA, lineB, lineC) {
   }
 }
 function triangleCheck(lineA, lineB, lineC) {
-  let itExistsTriangleWithSuchLines = null;
   if (conditionOne(lineA, lineB, lineC) || conditionTwo(lineA, lineB, lineC)) {
     return false;
   }
@@ -157,15 +154,15 @@ function hydrate(pedido) {
   let howManyNumbers = extractingNumbers.length;
   let goodPractices = '';
   let cupsOfWater = 0;
-  let number = '';
   if (howManyNumbers === 1) {
     goodPractices = '1 copo de água';
-  } else { for (let index = 0; index < howManyNumbers; index += 1) {
-     cupsOfWater = cupsOfWater + parseInt(extractingNumbers[index]);
+  } else { 
+      for (let index = 0; index < howManyNumbers; index += 1) {
+         cupsOfWater = cupsOfWater + parseInt(extractingNumbers[index]);
+        }
+      goodPractices = cupsOfWater.toString().concat(' copos de água');
     }
-  goodPractices = cupsOfWater.toString().concat(' copos de água');
-  }
-  return goodPractices;
+return goodPractices;
 }
 // console.log(hydrate("1 cerveja"));
 // console.log(hydrate("2 cervejas e 1 copo de vinho"));
