@@ -118,18 +118,20 @@ function catAndMouse(mouse, cat1, cat2) {
 // Desafio 8 (----DONE----)
 // REQUISITO 08: dado um conjunto de números, dependendo de como cada um deles é dividido por 3, por 5,
 // ambos ou nenhum destes, registramos mensagens respectivas
+function messageCapturing(number) {
+      if (number % 3 === 0 && number % 5 === 0) { return 'fizzbuzz'};
+      if (number % 3 === 0) { return 'fizz'};
+      if (number % 5 === 0) { return 'buzz'};
+return 'bug!';
+}
 function fizzBuzz(numbers) {
-  let messageCapturing = [];
+  let msgCapturing = [];
+  let count = 0;
   for (let number of numbers) {
-    if (number % 3 === 0) {
-      if (number % 5 === 0) {
-        messageCapturing.push('fizzbuzz');
-      } else messageCapturing.push('fizz');
-    } else if (number % 5 === 0) {
-      messageCapturing.push('buzz');
-    } else messageCapturing.push('bug!');
+    msgCapturing[count] = messageCapturing(number);
+    count += 1;
   }
-  return messageCapturing;
+  return msgCapturing;
 }
 // console.log(fizzBuzz([2, 15, 7, 9, 45]));
 // (5) ['fizzbuzz', 'bug!', 'bug!', 'fizz', 'bug!']
