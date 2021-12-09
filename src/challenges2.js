@@ -1,8 +1,7 @@
 // Desafio 10 (----DONE----)
 // REQUISITO 10: criação dinâmica de objetos
-function techList() {
-}
-/* //techToLearn is defined and has at least one element
+function techList(techToLearn, name) {
+ //techToLearn is defined and has at least one element
   if (techToLearn.length){
     // We sort the elements in techs array
     techToLearn.sort();
@@ -21,18 +20,29 @@ function techList() {
     return "Vazio!";   //DSR: adicionei isso mais tarde tenho que verificar
   }
 } 
-
-//console.log(techList(["React", "Jest", "HTML", "CSS", "JavaScript"], "Debora")); */
+//console.log(techList(["React", "Jest", "HTML", "CSS", "JavaScript"], "Debora")); 
 
 // Desafio 11
 // REQUISITO 11: uso de regex ou se não conseguir, criação de funções de validação de string
 function sizeOK(setOfNumbers) {
-  return setOfNumbers.length === 11 ? true : false;
+  let answer = true;
+  if (setOfNumbers.length === 11) {
+    answer = true;
+  } else {
+    answer = false;
+  }
+  return answer;
 }
 
 function positiveValuesOK(setOfNumbers) {
   // const sortedNumbers = setOfNumbers.sort();
-  return setOfNumbers.sort()[0] >= 0 ? true : false;
+  let answer = true;
+  if (setOfNumbers.sort()[0] >= 0 ) {
+    answer = true;
+  } else {
+    answer = false;
+  }
+  return answer;
 }
 
 function rangeOK(setOfNumbers) {
