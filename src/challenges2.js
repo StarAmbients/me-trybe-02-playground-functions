@@ -1,15 +1,15 @@
 // Desafio 10 (----DONE----)
 // REQUISITO 10: criação dinâmica de objetos
 function techList(techToLearn, name) {
- //techToLearn is defined and has at least one element
-  if (techToLearn.length){
+// techToLearn is defined and has at least one element
+  if (techToLearn.length) {
     // We sort the elements in techs array
     techToLearn.sort();
     // We create a list of objects to be
     let techOrderedList = [];
-    for(let t in techToLearn) {
+    for (let t in techToLearn) {
       //We create a new object each iteration and send the value of the tech in arrat of techs to it
-    const techBy = { //Declaring object with const to avoid accidential change of type later, if
+    const techBy = { 
       tech: techToLearn[t],
       name: name,
     };
@@ -17,7 +17,7 @@ function techList(techToLearn, name) {
     }
     return techOrderedList;
   } else {
-    return "Vazio!";   //DSR: adicionei isso mais tarde tenho que verificar
+    return 'Vazio!'; 
   }
 } 
 //console.log(techList(["React", "Jest", "HTML", "CSS", "JavaScript"], "Debora")); 
@@ -37,7 +37,7 @@ function sizeOK(setOfNumbers) {
 function positiveValuesOK(setOfNumbers) {
   // const sortedNumbers = setOfNumbers.sort();
   let answer = true;
-  if (setOfNumbers.sort()[0] >= 0 ) {
+  if (setOfNumbers.sort()[0] >= 0) {
     answer = true;
   } else {
     answer = false;
@@ -50,7 +50,9 @@ function rangeOK(setOfNumbers) {
   // As numbers could be sorted here as strings, "25" is bigger than "100", because "2" is bigger than "1",
   // We decided to avoid this possible incorrect result by using a compare function, which would work fine
   // anyway if the input values are numbers.
-  return setOfNumbers.sort(function (a, b) { return b - a; })[0] <= 9 ? true : false;
+  let answer = true;
+  setOfNumbers.sort(function (a, b) { return b - a; })[0] <= 9 ? answer = true : answer = false;
+  return answer;
 }
 
 function freeOfRepetitionsOK(setOfNumbers) {
@@ -62,9 +64,9 @@ function freeOfRepetitionsOK(setOfNumbers) {
   // From the same thread in Stackoverflow we found how to create and use Map()
   let repetitionsRightNumber = true;
   // for less then 3 repetitions of a value in the array
-  const mapOccurences = setOfNumbers.reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map());
+  const mapOccur = setOfNumbers.reduce((acc, e) => acc.set(e, (acc.get(e) || 0) + 1), new Map());
   for (let index = 1; index < setOfNumbers.length; index += 1) {
-    if (mapOccurences.get(setOfNumbers[index]) >= 3) {
+    if (mapOccur.get(setOfNumbers[index]) >= 3) {
       repetitionsRightNumber = false;
       break;
     }
